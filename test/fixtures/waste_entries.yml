@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  waste_type: MyString
+  quantity: 1.5
+  unit: MyString
+  entry_date: 2025-05-22
+  notes: MyText
+  user: one
+
+two:
+  waste_type: MyString
+  quantity: 1.5
+  unit: MyString
+  entry_date: 2025-05-22
+  notes: MyText
+  user: two

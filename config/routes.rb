@@ -1,14 +1,10 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  # Devise routes for user authentication (sign up, log in, log out)
   devise_for :users
-
-  # Standard RESTful routes for tasks (index, show, new, create, edit, update, destroy)
   resources :tasks
+  resources :waste_entries # This creates all 7 RESTful routes for WasteEntry
 
-  # Sets the root URL ("/") of your application to the tasks index page
-  root to: "tasks#index"
-
-  # Health check route (usually for deployment monitoring)
-  get "up" => "rails/health#show", as: :rails_health_check
+  # You can set a root path if you don't have one, or comment it out for now
+  # For example, to make waste_entries the homepage after login:
+  # root to: "waste_entries#index"
 end

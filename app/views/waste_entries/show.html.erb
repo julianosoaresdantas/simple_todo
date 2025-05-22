@@ -1,0 +1,10 @@
+<h1>Waste Entry Details</h1>
+
+<p><strong>Type:</strong> <%= @waste_entry.waste_type %></p>
+<p><strong>Quantity:</strong> <%= @waste_entry.quantity %></p>
+<p><strong>Unit:</strong> <%= @waste_entry.unit %></p>
+<p><strong>Date:</strong> <%= @waste_entry.entry_date.strftime("%Y-%m-%d") %></p>
+<p><strong>Notes:</strong> <%= @waste_entry.notes %></p>
+
+<%= link_to 'Edit', edit_waste_entry_path(@waste_entry), class: 'btn btn-secondary' %> |
+<%= link_to 'Back to Waste Entries', waste_entries_path, class: 'btn btn-info' %>
