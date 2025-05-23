@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+# This file is copied from rspec-rails' bin/rspec_stub
+# It's intended to be a simple binstub to run rspec.
+
+require 'bundler/setup'
+load Gem.bin_path('rspec-core', 'rspec')

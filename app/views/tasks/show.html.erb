@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1>Task Details</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<p><strong>Title:</strong> <%= @task.title %></p>
+<p><strong>Description:</strong> <%= @task.description %></p>
+<p><strong>Status:</strong> <%= @task.status %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed ? 'Yes' : 'No' %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<% if policy(@task).edit? %>
+  <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-secondary' %>
+<% end %>
+<% if policy(@task).destroy? %>
+  | <%= link_to 'Destroy', @task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
+| <%= link_to 'Back to Tasks', tasks_path, class: 'btn btn-info' %>

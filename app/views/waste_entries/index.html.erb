@@ -1,6 +1,8 @@
 <h1>Your Waste Entries</h1>
 
-<%= link_to 'Log New Waste', new_waste_entry_path, class: 'btn btn-primary mb-3' %>
+<% if policy(WasteEntry).new? %>
+  <%= link_to 'Log New Waste', new_waste_entry_path, class: 'btn btn-primary mb-3' %>
+<% end %>
 
 <table class="table table-striped">
   <thead>
@@ -22,9 +24,21 @@
         <td><%= entry.unit %></td>
         <td><%= entry.entry_date.strftime("%Y-%m-%d") %></td>
         <td><%= entry.notes %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_waste_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if policy(entry).show? %>
+            <%= link_to 'Show', entry %>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(entry).edit? %>
+            <%= link_to 'Edit', edit_waste_entry_path(entry) %>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(entry).destroy? %>
+            <%= link_to 'Destroy', entry, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
